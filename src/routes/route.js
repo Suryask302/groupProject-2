@@ -13,7 +13,7 @@ router.post('/register', userController.createUser)
 
 router.post('/login', userController.loginUser)
 
-router.post('/books', middleware.mid, bookController.createBook)
+router.post('/books',middleware.mid, bookController.createBook)
 
 router.get('/books', middleware.mid, bookController.getBook)
 

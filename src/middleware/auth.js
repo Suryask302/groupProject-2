@@ -14,11 +14,12 @@ const mid = function (req, res, next) {
         if (!decodeToken) {
             return res.status(401).send({ status: false, msg: "Not a valid Token " })
         }
+        // if((Date.now() > (decodeToken.exp * 1000))){
+        //     return res.status(403).send({status : false, message : `session expired, please login again`})
+        //     }
         jwt.verify(token,  "this-is-aSecretTokenForLogin");
         req.loggedInUser = decodeToken.userId
         next()
-
-
     } catch (error) {
         res.status(500).send({ status: false, msg: error })
     }
